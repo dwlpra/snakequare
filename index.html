@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snake Square Web3</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="game-container">
+    <div id="score">Score: 0</div>
+    <canvas id="game" width="400" height="400"></canvas>
+    <div id="buttonGroup">
+      <button id="submitButton">Submit Score to Blockchain</button>
+      <button id="leaderboardButton">🏆 Leaderboard</button>
+      <button id="restartButton">🔄 Restart Game</button>
+    </div>
+  </div>
+
+  <!-- Modal Username -->
+  <div id="usernameModal" class="modal">
+    <div class="modal-content">
+      <h2>Enter Your Username</h2>
+      <input type="text" id="usernameInput" placeholder="Your name..." maxlength="20">
+      <button id="saveUsernameButton">Save</button>
+    </div>
+
+        <!-- Spinner di sini -->
+    <div id="loadingSpinner" style="display: none; text-align: center; padding: 20px;">
+        <div class="spinner"></div>
+    </div>
+  </div>
+
+  <!-- Modal Leaderboard -->
+  <div id="leaderboardModal" class="modal">
+    <div class="modal-content">
+        <div id="refreshSpinner" style="display: none; position: absolute; top: 10px; right: 10px;">
+            <div class="small-spinner"></div>
+          </div>
+      <span class="close">&times;</span>
+      <h2>🏆 Leaderboard</h2>
+      <div id="leaderboardTabs">
+        <button class="leaderboard-tab" data-type="daily">Daily</button>
+        <button class="leaderboard-tab" data-type="weekly">Weekly</button>
+        <button class="leaderboard-tab" data-type="all">All Time</button>
+      </div>
+      <ul id="leaderboardList"></ul>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/blockchain.js"></script>
+  <script src="js/leaderboard.js"></script>
+
+</body>
+</html>
